@@ -1,6 +1,9 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+var jsonParser = bodyParser.json();
+
 var buzzWords = [{
   buzzWord: 'word 2',
   points: Number,
@@ -26,7 +29,11 @@ app.get('/buzzword', (req, res) => {
 });
 
 //POST/buzzword
-
+app.post('/buzzword', jsonParser, (req, res) => {
+  console.log(req.body);
+  buzzWords.push(req.body);
+  res.send({ "success": true });
+});
 
 //PUT/buzzword
 
