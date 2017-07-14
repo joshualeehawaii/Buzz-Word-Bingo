@@ -19,13 +19,14 @@ app.use(express.static('public'));
 
 //GET/buzzword
 app.get('/buzzword', (req, res) => {
-  var printBuzzWords = '';
-  for (var i = 0; i < buzzWords.length; i++){
-    printBuzzWords += buzzWords[i].buzzWord + ' ';
-    console.log(printBuzzWords);
-  }
-  res.send(printBuzzWords);
+  var printBuzzwords = buzzWords.map((item) =>{
+    return item.buzzWord;
+  });
+  res.send(printBuzzwords);
 });
+
+//POST/buzzword
+
 
 //PUT/buzzword
 
