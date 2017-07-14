@@ -1,7 +1,16 @@
 /*jshint esversion: 6 */
 const express = require('express');
 const app = express();
-var buzzWords = [];
+var buzzWords = [{
+  buzzWord: 'word 2',
+  points: Number,
+  heard: false
+},
+{
+  buzzWord: 'word 1',
+  points: Number,
+  heard: false
+}];
 
 //Routes for the app
 
@@ -9,6 +18,14 @@ var buzzWords = [];
 app.use(express.static('public'));
 
 //GET/buzzword
+app.get('/buzzword', (req, res) => {
+  var printBuzzWords = '';
+  for (var i = 0; i < buzzWords.length; i++){
+    printBuzzWords += buzzWords[i].buzzWord + ' ';
+    console.log(printBuzzWords);
+  }
+  res.send(printBuzzWords);
+});
 
 //PUT/buzzword
 
