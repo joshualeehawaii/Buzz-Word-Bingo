@@ -59,7 +59,6 @@ app.delete('/buzzword', jsonParser, (req, res) => {
   });
 });
 
-
 //POST/reset
 app.post('/reset', jsonParser, (req, res) => {
   if ( req.body.reset === true){
